@@ -10,11 +10,16 @@ import {ThemeService} from '../../services/theme-service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  isDarkTheme: boolean | undefined;
 
   constructor(private themeService: ThemeService) {
+    this.themeService.isDarkTheme$.subscribe((themeStatus) => {
+      this.isDarkTheme = themeStatus;
+    });
   }
 
   toggleTheme() {
     this.themeService.toggleTheme();
   }
+
 }

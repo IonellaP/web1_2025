@@ -10,7 +10,17 @@ body.light-theme {
   color: #000000;
 }
 
+header.light-theme {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
 body.dark-theme {
   background-color: #333333;
+  color: #ffffff;
+}
+
+header.dark-theme {
+  background-color: #222222;
   color: #ffffff;
 }
