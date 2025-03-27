@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-new-products',
-  imports: [NgForOf],
+  imports: [],
   templateUrl: './new-products.component.html',
   standalone: true,
   styleUrl: './new-products.component.css'

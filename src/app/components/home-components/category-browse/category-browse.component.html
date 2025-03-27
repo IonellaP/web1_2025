@@ -1,0 +1,12 @@
+<div class="category-container">
+  <h2 class="category-title">Browse By Category</h2>
+  <div class="category-list">
+    <div *ngFor="let category of categories"
+         class="category-item"
+         [class.active]="category === selectedCategory"
+         (click)="onCategoryClick(category)">
+      <img [src]="category.icon" [alt]="category.name" class="category-icon" />
+      <p>{{ category.name }}</p>
+    </div>
+  </div>
+</div>
