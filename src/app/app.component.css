@@ -7,12 +7,12 @@ html, body {
 
 body.light-theme {
   background-color: #ffffff;
-  color: #000000;
+  color: #000000 !important;
 }
 
 header.light-theme {
   background-color: #f0f0f0;
-  color: #000000;
+  color: #000000 !important;
 }
 
 body.dark-theme {
@@ -20,7 +20,11 @@ body.dark-theme {
   color: #ffffff;
 }
 
+h2.dark-theme {
+  color: #ffffff;
+}
+
 header.dark-theme {
-  background-color: #222222;
+
   color: #ffffff;
 }

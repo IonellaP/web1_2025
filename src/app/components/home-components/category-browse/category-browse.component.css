@@ -11,7 +11,11 @@
   font-weight: 600;
   margin-bottom: 16px;
   text-align: center;
-  color: #010002;
+  /*color: black;**/
+}
+
+.category-title h2:first-of-type {
+  color: orange;
 }
 
 .category-list {
@@ -52,12 +56,12 @@
   margin-bottom: 8px;
 }
 
+.category-title.light-theme {
+  color: black;
+}
+
+
 @media (prefers-color-scheme: dark) {
-
-
-  .category-title {
-    color: #d1caca;
-  }
 
   .category-item {
     background-color: #bfbbbb;
@@ -71,5 +75,6 @@
   .category-item.active {
     background-color: #4a4a4a;
     border-color: #ffffff;
+    color: #ffffff;
   }
 }

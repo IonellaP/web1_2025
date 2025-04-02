@@ -41,9 +41,9 @@ header.light-theme {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header.light-theme nav a {
-  color: #333;
-}
+/*header.light-theme nav a {*/
+/*  color: #333;*/
+/*}*/
 
 header.light-theme nav a.active {
   font-weight: bold;
@@ -54,15 +54,17 @@ header.light-theme .icons img {
   filter: invert(0);
 }
 
-header.dark-theme {
-  background-color: #222222;
+
+
+header.dark-theme nav a{
+/*  background-color: #222222;*/
   color: #ffffff;
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-header.dark-theme nav a {
-  color: #ffffff;
-}
+/*header.dark-theme nav a {*/
+/*  color: #ffffff;*/
+/*}*/
 
 header.dark-theme nav a.active {
   font-weight: bold;
