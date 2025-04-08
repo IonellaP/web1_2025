@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -8,29 +8,40 @@ import { BehaviorSubject } from 'rxjs';
 export class ThemeService {
   private isDarkThemeSubject = new BehaviorSubject<boolean>(false);
   isDarkTheme$ = this.isDarkThemeSubject.asObservable();
+  private readonly isBrowser: boolean;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark';
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
-    this.isDarkThemeSubject.next(isDark);
-    this.applyTheme(isDark);
+    if (this.isBrowser) {
+      const savedTheme = localStorage.getItem('theme');
+      const isDark = savedTheme === 'dark';
 
-    // 🔥 Fix: Așteaptă un mic delay înainte de actualizarea navigației
-    setTimeout(() => this.updateNavColors(), 100);
+      this.isDarkThemeSubject.next(isDark);
+      this.applyTheme(isDark);
+
+      setTimeout(() => this.updateNavColors(), 100);
+    }
   }
 
   toggleTheme() {
     const newTheme = !this.isDarkThemeSubject.value;
     this.isDarkThemeSubject.next(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-    this.applyTheme(newTheme);
 
-    // 🔥 Fix: Actualizează navigația după schimbare
-    setTimeout(() => this.updateNavColors(), 100);
+    if (this.isBrowser) {
+      localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+      this.applyTheme(newTheme);
+
+      setTimeout(() => this.updateNavColors(), 100);
+    }
   }
 
   applyTheme(isDark: boolean) {
+    if (!this.isBrowser) return;
+
     const body = this.document.body;
     const header = this.document.querySelector('header') as HTMLElement;
 
@@ -52,6 +63,8 @@ export class ThemeService {
   }
 
   private updateNavColors() {
+    if (!this.isBrowser) return;
+
     const links = this.document.querySelectorAll("nav a") as NodeListOf<HTMLAnchorElement>;
     const isDark = this.document.body.classList.contains("dark-theme");
 
