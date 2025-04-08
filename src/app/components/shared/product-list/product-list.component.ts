@@ -11,7 +11,7 @@ interface Product {
 @Component({
   selector: 'app-product-list',
   imports: [
-    NgForOf,
+    //NgForOf,
     CurrencyPipe,
   ],
   templateUrl: './product-list.component.html',

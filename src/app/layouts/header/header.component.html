@@ -4,15 +4,15 @@
   </div>
   <input type="text" placeholder="Search">
   <nav>
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/products" routerLinkActive="active">Products</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+    <a routerLink="/" routerLinkActive="active" class="navigation-links">Home</a>
+    <a routerLink="/products" routerLinkActive="active" class="navigation-links">Products</a>
+    <a routerLink="/about" routerLinkActive="active" class="navigation-links">About</a>
+    <a routerLink="/contact-us" routerLinkActive="active" class="navigation-links">Contact Us</a>
   </nav>
   <div class="icons">
-    <a routerLink="/favorites"><img src="/assets/icons/favorites.svg" alt="Favorites"></a>
-    <a routerLink="/cart"><img src="/assets/icons/cart.svg" alt="Cart"></a>
-    <a routerLink="/profile"><img src="/assets/icons/user.svg" alt="Profile"></a>
+    <a routerLink="/favorites"><img src="/assets/icons/favorites.svg" alt="Favorites" class="navigation-links"></a>
+    <a routerLink="/cart"><img src="/assets/icons/cart.svg" alt="Cart" class="navigation-links"></a>
+    <a routerLink="/profile"><img src="/assets/icons/user.svg" alt="Profile" class="navigation-links"></a>
     <img [src]="isDarkTheme ? '/assets/icons/moon.svg' : '/assets/icons/sun.svg'" (click)="toggleTheme()" alt="toggle-theme" />
   </div>
 </header>
