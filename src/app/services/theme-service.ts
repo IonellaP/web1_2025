@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ThemeService {
   private isDarkThemeSubject = new BehaviorSubject<boolean>(false);
   isDarkTheme$ = this.isDarkThemeSubject.asObservable();
-  private readonly isBrowser: boolean;
+  private isBrowser: boolean;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,

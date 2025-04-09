@@ -1,12 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CurrencyPipe, NgForOf} from '@angular/common';
+import {Product} from '../../../interfaces/product.model';
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  imageUrl: string;
-}
 
 @Component({
   selector: 'app-product-list',
