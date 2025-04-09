@@ -4,6 +4,7 @@ import {BannerHomeComponent} from '../../components/home-components/banner-home/
 import {NewProductsComponent} from '../../components/home-components/new-products/new-products.component';
 import {CategoryBrowseComponent} from '../../components/home-components/category-browse/category-browse.component';
 import {NewArrivalComponent} from '../../components/home-components/new-arrival/new-arrival.component';
+import {ProductShowCaseComponent} from '../../components/home-components/product-show-case/product-show-case.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import {NewArrivalComponent} from '../../components/home-components/new-arrival/
     BannerHomeComponent,
     NewProductsComponent,
     CategoryBrowseComponent,
-    NewArrivalComponent
+    NewArrivalComponent,
+    ProductShowCaseComponent
   ],
   templateUrl: './home.component.html',
   standalone: true,
