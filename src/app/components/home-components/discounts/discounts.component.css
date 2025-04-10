@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.discounts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}

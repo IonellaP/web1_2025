@@ -4,7 +4,6 @@
   <button [class.active]="selectedTab === 'featured'" (click)="selectTab('featured')">Featured</button>
 </div>
 
-<!-- Passing products to the ProductListComponent -->
 <div class="product-list">
   <app-product-list *ngFor="let product of currentProducts" [product]="product"></app-product-list>
 </div>

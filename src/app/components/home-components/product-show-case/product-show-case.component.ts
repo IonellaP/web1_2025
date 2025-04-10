@@ -16,28 +16,28 @@ export class ProductShowCaseComponent implements OnInit {
     {
       id: 1,
       name: 'Popular products',
-      image: './assets/images/products-list/applewatch.png',
+      image: './assets/images/products-list/productsgroup.png',
       description: 'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
       backgroundColor: '#f5f5f7'
     },
     {
       id: 2,
-      name: 'Popular products',
-      image: './assets/images/products-list/applewatch.png',
+      name: 'Ipad Pro',
+      image: './assets/images/products-list/ipad.png',
       description: 'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
       backgroundColor: '#f5f5f7'
     },
     {
       id: 3,
-      name: 'Popular products',
-      image: './assets/images/products-list/applewatch.png',
+      name: 'Samsung Galaxy',
+      image: './assets/images/products-list/samsunggalaxy.png',
       description: 'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
       backgroundColor: '#f5f5f7'
     },
     {
       id: 4,
-      name: 'Popular products',
-      image: './assets/images/products-list/applewatch.png',
+      name: 'Macbook PRO',
+      image: './assets/images/products-list/Macbook1.png',
       description: 'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
       backgroundColor: '#f5f5f7'
     }

@@ -5,6 +5,7 @@ import {NewProductsComponent} from '../../components/home-components/new-product
 import {CategoryBrowseComponent} from '../../components/home-components/category-browse/category-browse.component';
 import {NewArrivalComponent} from '../../components/home-components/new-arrival/new-arrival.component';
 import {ProductShowCaseComponent} from '../../components/home-components/product-show-case/product-show-case.component';
+import {DiscountsComponent} from '../../components/home-components/discounts/discounts.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import {ProductShowCaseComponent} from '../../components/home-components/product
     NewProductsComponent,
     CategoryBrowseComponent,
     NewArrivalComponent,
-    ProductShowCaseComponent
+    ProductShowCaseComponent,
+    DiscountsComponent
   ],
   templateUrl: './home.component.html',
   standalone: true,
