@@ -1,0 +1,7 @@
+<div class="banner-container" [ngStyle]="bannerStyle">
+  <div class="banner-content">
+    <h1 class="banner-title">{{ title }} <span class="emphasis">{{ highlightedText }}</span></h1>
+    <p class="banner-subtitle">{{ description }}</p>
+    <a [routerLink]="buttonLink" class="shop-button">{{ buttonText }}</a>
+  </div>
+</div>

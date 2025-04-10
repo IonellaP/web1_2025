@@ -6,6 +6,7 @@ import {CategoryBrowseComponent} from '../../components/home-components/category
 import {NewArrivalComponent} from '../../components/home-components/new-arrival/new-arrival.component';
 import {ProductShowCaseComponent} from '../../components/home-components/product-show-case/product-show-case.component';
 import {DiscountsComponent} from '../../components/home-components/discounts/discounts.component';
+import {SalerProductsComponent} from '../../components/home-components/saler-products/saler-products.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import {DiscountsComponent} from '../../components/home-components/discounts/dis
     CategoryBrowseComponent,
     NewArrivalComponent,
     ProductShowCaseComponent,
-    DiscountsComponent
+    DiscountsComponent,
+    SalerProductsComponent
   ],
   templateUrl: './home.component.html',
   standalone: true,
