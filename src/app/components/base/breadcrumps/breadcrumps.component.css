@@ -1,0 +1,35 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #A4A4A4;
+  padding: 16px 0;
+  margin-left: 62px;
+}
+
+.breadcrumb a {
+  color: #A4A4A4;
+  text-decoration: none;
+  font-size: 25px;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #3366cc;
+}
+
+.breadcrumb .separator {
+  font-size: 18px;
+  line-height: 1;
+  color: #bbb;
+}
+
+.breadcrumb .current {
+  color: #121212;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.breadcrumb .current.dark-theme {
+  color: #e8e6e6;
+}

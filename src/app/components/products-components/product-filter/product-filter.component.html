@@ -1,0 +1,31 @@
+<div class="sidebar-container">
+  <div class="filter-section">
+    <div class="filter-header">
+      <h3>Brand</h3>
+      <span class="expand-icon">^</span>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTerm">
+    </div>
+
+    <div class="brand-list">
+      <div *ngFor="let brand of filteredBrands" class="brand-item">
+        <input type="checkbox" [id]="'brand-' + brand.name" [checked]="brand.checked" (change)="onBrandChange(brand, $event)">
+        <label [for]="'brand-' + brand.name">{{brand.name}} <span class="count">{{brand.count}}</span></label>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let category of filterCategories" class="filter-section">
+    <div class="filter-header" (click)="toggleExpand(category)">
+      <h3>{{category.name}}</h3>
+      <span class="expand-icon" [ngClass]="{'expanded': category.expanded}">^</span>
+    </div>
+
+    <div class="filter-content" *ngIf="category.expanded">
+      <div class="placeholder-content">
+        <div class="placeholder-item" *ngFor="let i of [1,2,3,4]"></div>
+      </div>
+    </div>
+  </div>
+</div>

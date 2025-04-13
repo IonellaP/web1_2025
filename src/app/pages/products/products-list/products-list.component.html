@@ -1,0 +1,30 @@
+<app-breadcrumps [items]="breadcrumbItems"></app-breadcrumps>
+<div class="product-page-container">
+  <div class="filters-section">
+    <app-product-filter (filterChange)="handleFilterChange($event)"></app-product-filter>
+  </div>
+
+  <div class="products-section">
+    <div class="products-header">
+      <div class="products-count">
+        Selected Products: <span class="count">{{selectedProducts}}</span>
+      </div>
+
+      <div class="sort-dropdown">
+        <select (change)="onSortChange($event)">
+          <option>By rating</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest First</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <ng-container *ngFor="let product of products">
+        <app-product-list [product]="product"></app-product-list>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

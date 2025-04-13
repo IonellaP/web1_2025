@@ -3,7 +3,7 @@ import {NgStyle} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-saler-products',
+  selector: 'app-saler-products-list',
   imports: [
     NgStyle,
     RouterLink

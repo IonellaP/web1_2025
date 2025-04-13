@@ -1,12 +1,13 @@
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {AboutComponent} from './pages/about/about.component';
-import {ProductsComponent} from './pages/products/products.component';
+import {ProductsListComponent} from './pages/products/products-list/products-list.component';
 import {ContactsComponent} from './pages/contacts/contacts.component';
 import {FavoritesComponent} from './pages/favorites/favorites.component';
 import {CartComponent} from './pages/cart/cart.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
+import {CatalogComponent} from './pages/catalog/catalog.component';
 
 export const routes: Routes = [
   {
@@ -19,7 +20,7 @@ export const routes: Routes = [
   },
     {
     path: 'products',
-    component: ProductsComponent,
+    component: ProductsListComponent,
   },
     {
     path: 'contact-us',
@@ -37,6 +38,10 @@ export const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
   },
+  {
+    path: 'catalog',
+    component: CatalogComponent,
+  }
 ];
 
 @NgModule({

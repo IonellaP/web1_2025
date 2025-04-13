@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgForOf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-category-browse',
@@ -11,6 +12,8 @@ import {NgForOf} from '@angular/common';
   styleUrl: './category-browse.component.css'
 })
 export class CategoryBrowseComponent {
+  constructor(private router: Router) {}
+
 
   categories = [
     {
@@ -40,13 +43,6 @@ export class CategoryBrowseComponent {
   onCategoryClick(category: any) {
     this.selectedCategory = category;
     console.log('Clicked on:', category.name);
-  }
-
-  prev() {
-    console.log('Previous category');
-  }
-
-  next() {
-    console.log('Next category');
-  }
+    this.router.navigate(['/products']);
+}
 }

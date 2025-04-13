@@ -21,7 +21,7 @@ export class NewArrivalComponent {
     new: [
       { id: 1, name: 'iPhone 14 Pro Max',
         price: 900,
-        image: './assets/images/products-list/iphone.png'
+        image: '/assets/images/products-list/iphone.png'
       },
       { id: 2,
         name: 'Blackmagic Camera 6K',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForOf} from '@angular/common';
-import {ProductListComponent} from '../../shared/product-list/product-list.component';
+import {ProductListComponent} from '../product-list/product-list.component';
 import {Product} from '../../../interfaces/product.model';
 
 @Component({
