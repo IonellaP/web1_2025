@@ -1,1 +1,92 @@
-<p>contacts works!</p>
+<div class="contact-container">
+  <h1 class="page-title">Contact Us</h1>
+  <p class="intro-text">
+    We're here to help! Fill out the form or reach us through the information below.
+  </p>
+
+  <div class="contact-content">
+    <div class="contact-form-container">
+      <h2>Send us a message</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" *ngFor="let field of formFields">
+          <label [for]="field.id">{{ field.label }}</label>
+          <ng-container [ngSwitch]="field.type">
+            <input *ngSwitchCase="'text'" [type]="field.type" [id]="field.id" [formControlName]="field.name"
+                   [placeholder]="field.placeholder"
+                   [ngClass]="{'invalid': contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched}">
+
+            <input *ngSwitchCase="'email'" type="email" [id]="field.id" [formControlName]="field.name"
+                   [placeholder]="field.placeholder"
+                   [ngClass]="{'invalid': contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched}">
+
+            <!-- FIXED: Removed line break / space from inside textarea -->
+            <textarea *ngSwitchCase="'textarea'" [id]="field.id" [formControlName]="field.name"
+                      [placeholder]="field.placeholder" rows="5"
+                      [ngClass]="{'invalid': contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched}"></textarea>
+          </ng-container>
+
+          <div class="error-message"
+               *ngIf="contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched">
+            {{ field.error }}
+          </div>
+        </div>
+        <button type="submit" class="send-message-btn" [disabled]="contactForm.invalid">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-info-container">
+      <h2>Contact Information</h2>
+
+      <div class="info-item">
+        <div class="icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="map"></mat-icon>
+        </div>
+        <div class="info-text">
+          <h3>Our Store</h3>
+          <p>Alexandru cel Bun 42 street, Balti</p>
+          <p>Decebal 24A street, Balti</p>
+          <p>1Mai 5A street, Balti</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon>
+        </div>
+        <div class="info-text">
+          <h3>Phone</h3>
+          <p>/231/ 7-07-71, +37360070771</p>
+          <p>Service Center</p>
+          <p>/231/ 72-888, +37360072888</p>
+          <p class="hours">Mon–Fri, 9am–6pm EST</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
+        </div>
+        <div class="info-text">
+          <h3>Email</h3>
+          <p> info&#64;slaider.md</p>
+          <p class="response-time">Response within 24h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+        <div class="faq-question" (click)="toggleFaq(i)">
+          {{ faq.question }}
+          <span [class.expanded]="expandedFaq === i">▼</span>
+        </div>
+        <div class="faq-answer" [class.expanded]="expandedFaq === i">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
