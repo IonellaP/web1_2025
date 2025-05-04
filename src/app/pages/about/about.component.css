@@ -129,3 +129,42 @@
   transform: translateY(-2px);
 }
 
+:host-context(.dark-theme) .about-section {
+  background-color: #424242;
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .about-text {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .about-header span {
+  color: #93c5fd;
+}
+
+:host-context(.dark-theme) .about-header .subheader {
+  color: #94a3b8;
+}
+
+:host-context(.dark-theme) .about-header .underline {
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+:host-context(.dark-theme) .about-description {
+  color: #cbd5e1;
+}
+
+:host-context(.dark-theme) .about-cta a {
+  background-color: #5a5a5a;
+  color: white;
+}
+
+:host-context(.dark-theme) .about-cta a:hover {
+  background-color: #2563eb;
+}
+
+:host-context(.dark-theme) .about-image::before,
+:host-context(.dark-theme) .about-image::after {
+  background-color: rgba(96, 165, 250, 0.1);
+}
+

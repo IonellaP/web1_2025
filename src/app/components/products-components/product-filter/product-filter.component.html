@@ -2,11 +2,11 @@
   <div class="filter-section">
     <div class="filter-header">
       <h3>Brand</h3>
-      <span class="expand-icon">^</span>
+<!--      <span class="expand-icon">^</span>-->
     </div>
 
     <div class="search-box">
-      <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTerm">
+      <input type="text" placeholder="Search">
     </div>
 
     <div class="brand-list">
@@ -19,7 +19,7 @@
   <div *ngFor="let category of filterCategories" class="filter-section">
     <div class="filter-header" (click)="toggleExpand(category)">
       <h3>{{category.name}}</h3>
-      <span class="expand-icon" [ngClass]="{'expanded': category.expanded}">^</span>
+<!--      <span class="expand-icon" [ngClass]="{'expanded': category.expanded}">^</span>-->
     </div>
 
     <div class="filter-content" *ngIf="category.expanded">

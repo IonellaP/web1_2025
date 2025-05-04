@@ -33,6 +33,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+.info {
+  display: flex;
+}
+
 .form-group {
   margin-bottom: 1rem;
 }
@@ -122,4 +126,74 @@ input.invalid, textarea.invalid {
 .faq-question span.expanded {
   transform: rotate(180deg);
   transition: transform 0.2s;
+}
+
+
+:host-context(.dark-theme) .contact-container {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .page-title {
+  color: #ffffff;
+}
+
+:host-context(.dark-theme) .intro-text {
+  color: #a0aec0;
+}
+
+:host-context(.dark-theme) .contact-form-container,
+:host-context(.dark-theme) .contact-info-container {
+  background-color: #444444;
+  color: #e2e8f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+:host-context(.dark-theme) input,
+:host-context(.dark-theme) textarea {
+  /*background-color: #4a5568;*/
+  border-color: #2d3748;
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) input.invalid,
+:host-context(.dark-theme) textarea.invalid {
+  border-color: #e74c3c;
+}
+
+:host-context(.dark-theme) .error-message {
+  color: #e74c3c;
+}
+
+:host-context(.dark-theme) .send-message-btn {
+  background-color: #3182ce;
+  color: white;
+}
+
+:host-context(.dark-theme) .send-message-btn:disabled {
+  background-color: #4a5568;
+}
+
+:host-context(.dark-theme) .send-message-btn:hover:not(:disabled) {
+  background-color: #2b6cb0;
+}
+
+:host-context(.dark-theme) .info-item {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .faq-section {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .faq-question {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .faq-answer {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .faq-question span.expanded {
+  transform: rotate(180deg);
 }

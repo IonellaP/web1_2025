@@ -1,6 +1,6 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,7 @@ export class ThemeService {
 
     const body = this.document.body;
     const header = this.document.querySelector('header') as HTMLElement;
+    const productCards = this.document.querySelectorAll('.product-item') as NodeListOf<HTMLElement>;
 
     if (isDark) {
       body.classList.add('dark-theme');
@@ -52,6 +53,11 @@ export class ThemeService {
         header.classList.add('dark-theme');
         header.classList.remove('light-theme');
       }
+
+      productCards.forEach(card => {
+        card.classList.add('dark-theme');
+        card.classList.remove('light-theme');
+      });
     } else {
       body.classList.add('light-theme');
       body.classList.remove('dark-theme');
@@ -59,6 +65,11 @@ export class ThemeService {
         header.classList.add('light-theme');
         header.classList.remove('dark-theme');
       }
+
+      productCards.forEach(card => {
+        card.classList.add('light-theme');
+        card.classList.remove('dark-theme');
+      });
     }
   }
 

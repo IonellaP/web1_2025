@@ -19,7 +19,6 @@
                    [placeholder]="field.placeholder"
                    [ngClass]="{'invalid': contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched}">
 
-            <!-- FIXED: Removed line break / space from inside textarea -->
             <textarea *ngSwitchCase="'textarea'" [id]="field.id" [formControlName]="field.name"
                       [placeholder]="field.placeholder" rows="5"
                       [ngClass]="{'invalid': contactForm.get(field.name)?.invalid && contactForm.get(field.name)?.touched}"></textarea>
@@ -37,6 +36,7 @@
     <div class="contact-info-container">
       <h2>Contact Information</h2>
 
+      <div class="info">
       <div class="info-item">
         <div class="icon">
           <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="map"></mat-icon>
@@ -73,6 +73,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <div class="faq-section">
