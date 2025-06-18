@@ -1,1 +1,54 @@
-<p>cart works!</p>
+<section class="cart-container">
+  <div class="cart-content">
+    <div class="breadcrumb">
+      <app-breadcrumps [items]="breadcrumbItems"></app-breadcrumps>
+
+    </div>
+    <div class="cart-products">
+      <div class="cart-table-header">
+        <div>Product</div>
+        <div>Price</div>
+        <div>Quantity</div>
+        <div>Total</div>
+      </div>
+      <div *ngFor="let product of products" class="cart-item">
+        <div class="product-details">
+          <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image" />
+          <div class="product-name">{{ product.name }}</div>
+        </div>
+        <div class="price">{{ product.price }}</div>
+        <div class="quantity">
+          <button class="quantity-btn">-</button>
+          <div class="quantity-box">{{ product.quantity }}</div>
+          <button class="quantity-btn">+</button>
+        </div>
+        <div class="total">
+          <img src="assets/icons/cart-2.png" alt="total icon" />
+        </div>
+      </div>
+      <div class="cart-summary">
+        <table>
+          <tr class="summary-row">
+            <td>Subtotal</td>
+            <td class="summary-col">:</td>
+            <td class="summary-value">$90</td>
+          </tr>
+          <tr>
+            <td>Shopping Fee</td>
+            <td class="summary-col">:</td>
+            <td class="summary-value">$5</td>
+          </tr>
+          <tr class="summary-row">
+            <td>Total Order</td>
+            <td class="summary-col">:</td>
+            <td class="summary-value">$95</td>
+          </tr>
+        </table>
+      </div>
+      <div class="cart-actions">
+        <button class="close-btn">Close</button>
+        <button class="checkout-btn">Check out</button>
+      </div>
+    </div>
+  </div>
+</section>
