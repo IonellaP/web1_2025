@@ -1,20 +1,44 @@
-  <header>
+<header>
   <div class="logo">
-    <img src="/assets/icons/logo.svg" alt="Logo">
+    <img src="/assets/icons/logo.svg" alt="Logo" routerLink="/">
   </div>
+
   <input type="text" placeholder="Search">
+
   <nav>
-    <a routerLink="/" routerLinkActive="active" class="navigation-links">Home</a>
-    <a routerLink="/products" routerLinkActive="active" class="navigation-links">Products</a>
-    <a routerLink="/about" routerLinkActive="active" class="navigation-links">About</a>
-    <a routerLink="/contact-us" routerLinkActive="active" class="navigation-links">Contact Us</a>
-  </nav>
-  <div class="icons">
-    <a routerLink="/favorites">
-      <img src="/assets/icons/favorites.svg" alt="Favorites" class="navigation-links">
+    <a *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive="active"
+       class="navigation-links">
+      {{ link.title }}
     </a>
-    <a routerLink="/cart"><img src="/assets/icons/cart.svg" alt="Cart" class="navigation-links"></a>
-    <a routerLink="/profile"><img src="/assets/icons/user.svg" alt="Profile" class="navigation-links"></a>
-    <img [src]="isDarkTheme ? '/assets/icons/moon.svg' : '/assets/icons/sun.svg'" (click)="toggleTheme()" alt="toggle-theme" />
+  </nav>
+
+  <div class="icons" *ngIf="vm$ | async as vm">
+    <a routerLink="/favorites">
+      <img src="/assets/icons/favorites.svg" alt="Favorites">
+    </a>
+
+    <a routerLink="/cart">
+      <img src="/assets/icons/cart.svg" alt="Cart">
+    </a>
+
+    <div class="user-section" *ngIf="vm.isLoggedIn; else loginSection">
+      <div class="user-badge" [title]="vm.userEmail">
+        {{ vm.userInitials }}
+      </div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+
+    <ng-template #loginSection>
+      <a routerLink="/login">
+        <img src="/assets/icons/user.svg" alt="Login">
+      </a>
+    </ng-template>
+
+    <img [src]="vm.isDarkTheme ? '/assets/icons/moon.svg' : '/assets/icons/sun.svg'"
+         (click)="toggleTheme()"
+         alt="Theme toggle"
+         class="theme-toggle">
   </div>
 </header>

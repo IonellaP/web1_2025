@@ -8,6 +8,7 @@ import {CartComponent} from './pages/cart/cart.component';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
 import {CatalogComponent} from './pages/catalog/catalog.component';
+import {RegisterComponent} from './pages/register/register.component';
 
 export const routes: Routes = [
   {
@@ -35,8 +36,12 @@ export const routes: Routes = [
     component: CartComponent,
   },
   {
-    path: 'profile',
+    path: 'login',
     component: ProfileComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'catalog',

@@ -5,19 +5,20 @@ import {AuthService} from '../../auth/auth.service';
 import {NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
+  selector: 'app-register',
+  templateUrl: './register.component.html',
   standalone: true,
   imports: [
     FormsModule,
-    RouterLink,
-    NgIf
+    NgIf,
+    RouterLink
   ],
-  styleUrls: ['profile.component.css']
+  styleUrls: ['./register.component.css']
 })
-export class ProfileComponent {
+export class RegisterComponent {
   email: string = '';
   password: string = '';
+  confirmPassword: string = '';
   errorMessage: string = '';
   isLoading: boolean = false;
 
@@ -27,13 +28,13 @@ export class ProfileComponent {
   ) {}
 
   async onSubmit(form: NgForm) {
-    if (!form.valid) return;
+    if (!form.valid || this.password !== this.confirmPassword) return;
 
     this.isLoading = true;
     this.errorMessage = '';
 
     try {
-      await this.authService.login(this.email, this.password);
+      await this.authService.register(this.email, this.password);
       await this.router.navigate(['']);
     } catch (error: any) {
       this.errorMessage = this.getErrorMessage(error.code);
@@ -44,16 +45,14 @@ export class ProfileComponent {
 
   private getErrorMessage(code: string): string {
     switch (code) {
+      case 'auth/email-already-in-use':
+        return 'Emailul este deja înregistrat';
       case 'auth/invalid-email':
         return 'Email invalid';
-      case 'auth/user-disabled':
-        return 'Contul a fost dezactivat';
-      case 'auth/user-not-found':
-        return 'Nu există utilizator cu acest email';
-      case 'auth/wrong-password':
-        return 'Parolă incorectă';
+      case 'auth/weak-password':
+        return 'Parola trebuie să aibă minim 6 caractere';
       default:
-        return 'Eroare la autentificare';
+        return 'Eroare la înregistrare';
     }
   }
 }

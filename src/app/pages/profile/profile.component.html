@@ -1,1 +1,34 @@
-<p>profile works!</p>
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Login</h2>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <form class="auth-form" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+               [(ngModel)]="email" required email
+               placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               [(ngModel)]="password" required minlength="6"
+               placeholder="Enter your password">
+      </div>
+
+      <button type="submit" class="auth-button" [disabled]="!loginForm.valid || isLoading">
+        <span *ngIf="!isLoading">Login</span>
+        <span *ngIf="isLoading">Processing...</span>
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Don't have an account? <a routerLink="/register" class="auth-link">Register here</a></p>
+    </div>
+  </div>
+</div>
