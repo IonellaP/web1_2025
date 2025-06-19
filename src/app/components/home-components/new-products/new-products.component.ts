@@ -1,8 +1,11 @@
 import {Component} from '@angular/core';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-new-products-list',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './new-products.component.html',
   standalone: true,
   styleUrl: './new-products.component.css',
