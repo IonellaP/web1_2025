@@ -2,7 +2,6 @@
   <div class="cart-content">
     <div class="breadcrumb">
       <app-breadcrumps [items]="breadcrumbItems"></app-breadcrumps>
-
     </div>
     <div class="cart-products">
       <div class="cart-table-header">
@@ -11,42 +10,43 @@
         <div>Quantity</div>
         <div>Total</div>
       </div>
-      <div *ngFor="let product of products" class="cart-item">
+
+      <div *ngFor="let product of products; let i = index" class="cart-item">
         <div class="product-details">
           <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image" />
           <div class="product-name">{{ product.name }}</div>
         </div>
-        <div class="price">{{ product.price }}</div>
+        <div class="price">${{ product.price }}</div>
         <div class="quantity">
-          <button class="quantity-btn">-</button>
+          <button class="quantity-btn" (click)="decreaseQuantity(product)">-</button>
           <div class="quantity-box">{{ product.quantity }}</div>
-          <button class="quantity-btn">+</button>
+          <button class="quantity-btn" (click)="increaseQuantity(product)">+</button>
         </div>
-        <div class="total">
-          <img src="assets/icons/cart-2.png" alt="total icon" />
-        </div>
+        <div class="total">${{ product.price * product.quantity }}</div>
       </div>
+
       <div class="cart-summary">
         <table>
           <tr class="summary-row">
             <td>Subtotal</td>
             <td class="summary-col">:</td>
-            <td class="summary-value">$90</td>
+            <td class="summary-value">${{ getSubtotal() }}</td>
           </tr>
           <tr>
             <td>Shopping Fee</td>
             <td class="summary-col">:</td>
-            <td class="summary-value">$5</td>
+            <td class="summary-value">${{ shippingFee }}</td>
           </tr>
           <tr class="summary-row">
             <td>Total Order</td>
             <td class="summary-col">:</td>
-            <td class="summary-value">$95</td>
+            <td class="summary-value">${{ getTotalOrder() }}</td>
           </tr>
         </table>
       </div>
+
       <div class="cart-actions">
-        <button class="close-btn">Close</button>
+        <button class="close-btn">Continue Shopping</button>
         <button class="checkout-btn">Check out</button>
       </div>
     </div>
