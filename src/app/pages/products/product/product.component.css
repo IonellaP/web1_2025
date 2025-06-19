@@ -1,0 +1,341 @@
+.product-section.dark-theme {
+  background-color: #121212;
+}
+
+.product-content.dark-theme{
+  background: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.product-image.dark-theme {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.product-title.dark-theme {
+  color: #f5f5f5;
+}
+
+.product-description.dark-theme {
+  color: #b0b0b0;
+}
+
+.product-tech.dark-theme {
+  background: #333;
+  color: #e0e0e0;
+}
+
+.product-stock {
+  color: #4caf50;
+}
+
+ .product-stock::before.dark-theme {
+  background-color: #4caf50;
+}
+
+ .product-price-label.dark-theme {
+  color: #9e9e9e;
+}
+
+ .product-price.dark-theme {
+  color: #ffffff;
+}
+ .qty-btn.dark-theme {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+.qty-btn:hover.dark-theme {
+  background-color: #444;
+}
+
+ .qty-display.dark-theme {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+ .add-to-cart.dark-theme {
+  background-color: #3d5afe;
+}
+
+ .add-to-cart:hover.dark-theme {
+  background-color: #536dfe;
+  box-shadow: 0 4px 12px rgba(61, 90, 254, 0.4);
+}
+
+.product-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 200px);
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto;
+}
+
+.breadcrumb-wrapper {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.product-content {
+  display: flex;
+  gap: 5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem;
+  position: relative;
+}
+
+.product-image {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover img {
+  transform: scale(1.03);
+}
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.product-content.light-theme {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .product-image {
+  background: #f9fafb;
+}
+
+body.light-theme .product-title {
+  color: #1e293b;
+}
+
+body.light-theme .product-description {
+  color: #64748b;
+}
+
+body.light-theme .product-tech {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+body.light-theme .qty-btn {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+body.light-theme .qty-display {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+/* Common Styles rămân neschimbate */
+.product-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.product-description {
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.product-tech {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.product-stock {
+  font-weight: 500;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.product-stock::before {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.product-price-label {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.qty-btn {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-btn:hover {
+  transform: translateY(-2px);
+}
+
+.qty-display {
+  width: 4rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.add-to-cart {
+  height: 3rem;
+  padding: 0 2.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.add-to-cart:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.add-to-cart svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Responsive Design rămâne neschimbat */
+@media (max-width: 1200px) {
+  .product-content {
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .product-image {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-content {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+  }
+
+  .product-image {
+    max-width: 100%;
+  }
+
+  .product-details {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-section {
+    padding: 1rem;
+  }
+
+  .product-content {
+    padding: 2rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-actions {
+    flex-wrap: wrap;
+  }
+
+  .add-to-cart {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-content {
+    padding: 1.5rem;
+  }
+
+  .product-image {
+    padding: 1.5rem;
+  }
+
+  .product-title {
+    font-size: 1.75rem;
+  }
+
+  .product-price {
+    font-size: 2rem;
+  }
+}

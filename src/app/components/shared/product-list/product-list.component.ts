@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
 import {Product} from '../../../interfaces/product.model';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,4 +14,9 @@ import {Product} from '../../../interfaces/product.model';
 export class ProductListComponent {
   @Input() product!: Product;
 
+  constructor(private router: Router) {}
+
+  navigateToProduct() {
+    this.router.navigate(['/products', this.product.id]);
+  }
 }

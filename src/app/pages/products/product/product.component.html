@@ -1,1 +1,40 @@
-<p>product works!</p>
+<section class="product-section">
+  <div class="container">
+    <div class="breadcrumb-wrapper">
+      <app-breadcrumps [items]="breadcrumbItems"></app-breadcrumps>
+    </div>
+
+    <div class="product-content">
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name" />
+      </div>
+
+      <div class="product-details">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-description">
+          {{ product.description || 'Premium quality product with cutting-edge technology. Designed for performance and durability.' }}
+        </p>
+        <div class="product-stock">In Stock (75 available)</div>
+
+        <div>
+          <div class="product-price-label">Price</div>
+          <div class="product-price">${{ product.price | number:'1.2-2' }}</div>
+        </div>
+
+        <div class="product-actions">
+          <button class="qty-btn" (click)="decreaseQuantity()">-</button>
+          <div class="qty-display">{{ quantity }}</div>
+          <button class="qty-btn" (click)="increaseQuantity()">+</button>
+          <button class="add-to-cart" (click)="addToCart()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

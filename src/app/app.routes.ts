@@ -9,6 +9,7 @@ import {ProfileComponent} from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
 import {CatalogComponent} from './pages/catalog/catalog.component';
 import {RegisterComponent} from './pages/register/register.component';
+import {ProductComponent} from './pages/products/product/product.component';
 
 export const routes: Routes = [
   {
@@ -46,7 +47,15 @@ export const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
-  }
+  },
+  {
+    path: 'products/:id',
+    component: ProductComponent
+  },
+  // {
+  //   path: 'product',
+  //   component: ProductComponent
+  // }
 ];
 
 @NgModule({
