@@ -45,7 +45,6 @@ export class CartComponent {
     return this.getSubtotal() + this.shippingFee;
   }
 
-  // Crește cantitatea
   increaseQuantity(product: any): void {
     product.quantity++;
   }
