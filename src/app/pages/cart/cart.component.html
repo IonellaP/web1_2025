@@ -3,52 +3,69 @@
     <div class="breadcrumb">
       <app-breadcrumps [items]="breadcrumbItems"></app-breadcrumps>
     </div>
-    <div class="cart-products">
-      <div class="cart-table-header">
-        <div>Product</div>
-        <div>Price</div>
-        <div>Quantity</div>
-        <div>Total</div>
-      </div>
 
-      <div *ngFor="let product of products; let i = index" class="cart-item">
-        <div class="product-details">
+    <h1 class="cart-title">Shopping Cart</h1>
+
+    <div class="cart-items">
+      <div *ngFor="let product of products" class="cart-item">
+        <div class="product-info">
           <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image" />
-          <div class="product-name">{{ product.name }}</div>
+          <div class="product-details">
+            <div class="product-name">{{product.name}}</div>
+            <div class="product-variant" *ngIf="product.variant">{{product.variant}}</div>
+          </div>
         </div>
-        <div class="price">${{ product.price }}</div>
-        <div class="quantity">
+
+        <div class="product-price">${{product.price}}</div>
+
+        <div class="product-quantity">
           <button class="quantity-btn" (click)="decreaseQuantity(product)">-</button>
-          <div class="quantity-box">{{ product.quantity }}</div>
+          <span class="quantity-value">{{product.quantity}}</span>
           <button class="quantity-btn" (click)="increaseQuantity(product)">+</button>
         </div>
-        <div class="total">${{ product.price * product.quantity }}</div>
+
+        <div class="product-total">${{product.price * product.quantity}}</div>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+
+      <div class="promo-section">
+        <div class="promo-row">
+          <label>Discount code / Promo code</label>
+          <input type="text" placeholder="Code" class="promo-input" />
+        </div>
+
+        <div class="promo-row">
+          <label>Your bonus card number</label>
+          <input type="text" placeholder="Enter Card Number" class="promo-input" />
+        </div>
+
+        <button class="apply-btn">Apply</button>
       </div>
 
-      <div class="cart-summary">
-        <table>
-          <tr class="summary-row">
-            <td>Subtotal</td>
-            <td class="summary-col">:</td>
-            <td class="summary-value">${{ getSubtotal() }}</td>
-          </tr>
-          <tr>
-            <td>Shopping Fee</td>
-            <td class="summary-col">:</td>
-            <td class="summary-value">${{ shippingFee }}</td>
-          </tr>
-          <tr class="summary-row">
-            <td>Total Order</td>
-            <td class="summary-col">:</td>
-            <td class="summary-value">${{ getTotalOrder() }}</td>
-          </tr>
-        </table>
+      <div class="summary-details">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>${{getSubtotal()}}</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Tax</span>
+          <span>${{estimatedTax}}</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated shipping & Handling</span>
+          <span>${{shippingFee}}</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total</span>
+          <span>${{getTotalOrder()}}</span>
+        </div>
       </div>
 
-      <div class="cart-actions">
-        <button class="close-btn">Continue Shopping</button>
-        <button class="checkout-btn">Check out</button>
-      </div>
+      <button class="checkout-btn">Checkout</button>
     </div>
   </div>
 </section>

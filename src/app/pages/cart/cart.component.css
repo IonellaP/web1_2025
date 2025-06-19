@@ -1,169 +1,356 @@
+/* cart.component.css */
 :root {
+  /* Culori tema luminoasă */
   --primary-color: #393d45;
   --text-color: #000000;
   --bg-color: #ffffff;
   --card-bg: #f8f8f8;
-  --border-color: #000000;
+  --border-color: #e0e0e0;
   --link-color: #007bff;
   --btn-bg: #393d45;
   --btn-text: #ffffff;
   --hover-bg: #eeeeee;
+  --promo-bg: #f5f5f5;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --input-focus: #80bdff;
+  --btn-hover: #2b2e35;
+  --quantity-btn-bg: #f1f1f1;
 }
 
 body.dark-theme {
+  /* Culori tema întunecată */
   --primary-color: #ffffff;
-  --text-color: #ffffff;
+  --text-color: #e0e0e0;
   --bg-color: #1e1e1e;
   --card-bg: #2a2a2a;
-  --border-color: #555555;
+  --border-color: #444444;
   --link-color: #4a90e2;
   --btn-bg: #4a4a4a;
   --btn-text: #ffffff;
   --hover-bg: #3a3a3a;
+  --promo-bg: #333333;
+  --input-bg: #2d2d2d;
+  --input-border: #555555;
+  --input-focus: #4a7eb3;
+  --btn-hover: #5a5a5a;
+  --quantity-btn-bg: #3a3a3a;
 }
 
+/* Stiluri generale container */
 .cart-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  margin-bottom: 125px;
+  padding: 40px 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
+  min-height: calc(100vh - 80px);
 }
 
 .cart-content {
-  max-width: 1280px;
+  max-width: 1200px;
   width: 100%;
-  margin-top: 30px;
-}
-
-.breadcrumb-nav {
-  font-size: 16px;
-}
-
-.breadcrumb-nav a {
-  text-decoration: none;
-  color: var(--link-color);
-}
-
-.breadcrumb-nav a:hover {
-  text-decoration: underline;
-}
-
-.cart-products {
-  margin-top: 50px;
-}
-
-.cart-table-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.cart-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  grid-column: 1 / -1;
+  color: var(--primary-color);
+}
+
+/* Stiluri pentru lista de produse */
+.cart-items {
+  grid-column: 1;
 }
 
 .cart-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  flex: 2;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 20px;
+  border-radius: 4px;
   background-color: var(--card-bg);
-  margin-top: 30px;
-  padding: 15px;
-  border-radius: 6px;
+  padding: 5px;
 }
 
 .product-details {
   display: flex;
-  align-items: center;
-}
-
-.product-image {
-  width: 132px;
-  height: 123px;
-  object-fit: contain;
+  flex-direction: column;
 }
 
 .product-name {
-  margin-left: 15px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--primary-color);
 }
 
-.price,
-.quantity,
-.total {
+.product-variant {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+body.dark-theme .product-variant {
+  color: #aaa;
+}
+
+.product-sku {
+  font-size: 12px;
+  color: #999;
+}
+
+body.dark-theme .product-sku {
+  color: #777;
+}
+
+/* Stiluri pentru preț și cantitate */
+.product-price,
+.product-total {
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+}
+
+.product-quantity {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .quantity-btn {
-  font-size: 24px;
-  margin: 0 10px;
-  background: none;
-  border: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--quantity-btn-bg);
+  font-size: 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
   color: var(--text-color);
+  transition: all 0.2s ease;
 }
 
 .quantity-btn:hover {
-  color: var(--link-color);
+  background-color: var(--hover-bg);
+  transform: translateY(-1px);
 }
 
-.quantity-box {
-  border: 1px solid var(--border-color);
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-.cart-summary {
-  margin-top: 95px;
-  padding: 15px;
-  background-color: var(--card-bg);
-  border-radius: 6px;
-  width: 350px;
-  margin-left: auto;
-}
-
-.summary-row {
-  font-weight: bold;
-}
-
-.summary-col {
+.quantity-value {
+  margin: 0 15px;
+  min-width: 20px;
   text-align: center;
 }
 
-.summary-value {
-  text-align: end;
+/* Stiluri pentru sumarul comenzii */
+.order-summary {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.cart-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+body.dark-theme .order-summary {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.close-btn,
-.checkout-btn {
-  width: 131px;
-  height: 50px;
-  margin-left: 20px;
+.order-summary h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Stiluri pentru secțiunea promoțională */
+.promo-section {
+  background-color: var(--promo-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.promo-row {
+  margin-bottom: 15px;
+}
+
+.promo-row label {
+  display: block;
   font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.close-btn {
-  background-color: transparent;
+  margin-bottom: 5px;
   color: var(--text-color);
 }
 
-.close-btn:hover {
-  background-color: var(--hover-bg);
+.promo-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-color: var(--input-focus);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.promo-input:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+body.dark-theme .promo-input:focus {
+  box-shadow: 0 0 0 3px rgba(74, 126, 179, 0.25);
+}
+
+.promo-input::placeholder {
+  color: #999;
+}
+
+body.dark-theme .promo-input::placeholder {
+  color: #777;
+}
+
+.apply-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #5e60ce, #6930c3);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+  background: linear-gradient(135deg, #6930c3, #7400b8);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.apply-btn:active {
+  transform: scale(0.98);
+}
+
+.summary-details {
+  margin-bottom: 25px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 .checkout-btn {
-  color: var(--text-color);
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: #ffffff;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-btn:hover {
-  opacity: 0.9;
+  background: linear-gradient(135deg, #0077b6, #023e8a);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-btn:active {
+  transform: scale(0.97);
+}
+
+/* Stiluri responsive */
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .product-price,
+  .product-quantity,
+  .product-total {
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .product-quantity {
+    justify-content: flex-start;
+  }
+
+  .order-summary {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-container {
+    padding: 20px 10px;
+  }
+
+  .cart-content {
+    gap: 20px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
