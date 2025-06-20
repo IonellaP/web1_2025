@@ -1,5 +1,14 @@
 import { Injectable, Inject, PLATFORM_ID, Optional } from '@angular/core';
-import { Auth, authState, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword, User } from '@angular/fire/auth';
+import {
+  Auth,
+  authState,
+  signInWithEmailAndPassword,
+  signOut,
+  createUserWithEmailAndPassword,
+  User,
+  signInWithPopup,
+  GoogleAuthProvider
+} from '@angular/fire/auth';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -35,6 +44,21 @@ export class AuthService {
     } else {
       this.userSubject.next(null);
     }
+  }
+
+  // Добавлен метод для входа через Google
+  googleSignIn() {
+    if (!this.auth || !isPlatformBrowser(this.platformId)) {
+      return Promise.reject('Authentication not available');
+    }
+
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(this.auth, provider)
+      .then(() => this.router.navigate(['']))
+      .catch(error => {
+        console.error('Google sign in error:', error.message);
+        throw this.getErrorMessage(error.code);
+      });
   }
 
   register(email: string, password: string) {
@@ -97,7 +121,9 @@ export class AuthService {
       'auth/user-disabled': 'Contul a fost dezactivat',
       'auth/user-not-found': 'Nu există utilizator cu acest email',
       'auth/wrong-password': 'Parolă incorectă',
-      'auth/too-many-requests': 'Prea multe încercări. Încearcă mai târziu'
+      'auth/too-many-requests': 'Prea multe încercări. Încearcă mai târziu',
+      'auth/popup-closed-by-user': 'Fereastra de autentificare a fost închisă',
+      'auth/account-exists-with-different-credential': 'Acest email este deja asociat cu un alt cont'
     };
 
     return messages[code] || 'Eroare la autentificare';
